@@ -7,6 +7,7 @@
 
 import Foundation
 
-let day1 = Day1()
-print("Day 1: ", day1.run(input: Day1_SampleInput, output: Day1_SampleOutput) == true ? "Correct!" : "Incorrect")
+//print("Day 1: ", Day1Problem1.check() == true ? "Correct!" : "Incorrect")
+//print(Day1Problem1.run(input: Day1_RealInput))
+print(Day1Problem2.run(input: Day1_RealInput))
 

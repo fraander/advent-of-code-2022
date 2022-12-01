@@ -8,5 +8,7 @@
 import Foundation
 
 protocol Challenge {
-    func run(input: String, output: String) -> Bool
+    static func run(input: String) -> String
+    
+    static func check() -> Bool
 }

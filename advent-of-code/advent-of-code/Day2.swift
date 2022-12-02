@@ -17,66 +17,154 @@ class Day2Problem1: Challenge {
             let opponent = round[0]
             let player = round[1]
             
-            return xyzScore(player: player) + resultScore(opponent: opponent, player: player)
+            return xyzScore(player: player) + resultScore(opponent: oppToMove(opponent: opponent), player: plToMove(player: player))
         }
         
         let sum = scores.reduce(0, +)
         
         return String(sum)
-        
-        func xyzScore(player: String) -> Int {
-            switch player {
-                case "X":
-                    return 1
-                case "Y":
-                    return 2
-                case "Z":
-                    return 3
-                default:
-                    return 0
-            }
+    }
+    
+    static func xyzScore(player: String) -> Int {
+        switch player {
+            case "X":
+                return 1
+            case "Y":
+                return 2
+            case "Z":
+                return 3
+            default:
+                fatalError("Invalid input: " + player)
         }
-        
-        func resultScore(opponent: String, player: String) -> Int {
-            let opp = oppToMove(opponent: opponent) // map opponent to Rock, Paper, or Scissors
-            let pl = plToMove(player: player) // map player to Rock, Paper, or Scissors
-            
-            if opp == "Rock" && pl == "Scissors"
-                || opp == "Paper" && pl == "Rock"
-                || opp == "Scissors" && pl == "Paper" {
-                return 0 // player loses
-            } else if opp == pl {
-                return 3 // player ties
-            } else {
-                return 6 // player wins if they haven't lost or drawn
-            }
+    }
+    
+    static func resultScore(opponent: String, player: String) -> Int {
+        if opponent == "Rock" && player == "Scissors"
+            || opponent == "Paper" && player == "Rock"
+            || opponent == "Scissors" && player == "Paper" {
+            return 0 // player loses
+        } else if opponent == player {
+            return 3 // player ties
+        } else {
+            return 6 // player wins if they haven't lost or drawn
         }
-        
-        func oppToMove(opponent: String) -> String {
-            return inToMove(input: opponent, map: ("A", "B", "C"))
-        }
-        
-        func plToMove(player: String) -> String {
-            return inToMove(input: player, map: ("X", "Y", "Z"))
-        }
-        
-        func inToMove(input: String, map: (first: String, second: String, third: String)) -> String {
-            switch input {
-                case map.first:
-                    return "Rock"
-                case map.second:
-                    return "Paper"
-                case map.third:
-                    return "Scissors"
-                default:
-                    fatalError("Invalid input")
-            }
+    }
+    
+    static func oppToMove(opponent: String) -> String {
+        return inToMove(input: opponent, map: ("A", "B", "C"))
+    }
+    
+    static func plToMove(player: String) -> String {
+        return inToMove(input: player, map: ("X", "Y", "Z"))
+    }
+    
+    static func inToMove(input: String, map: (first: String, second: String, third: String)) -> String {
+        switch input {
+            case map.first:
+                return "Rock"
+            case map.second:
+                return "Paper"
+            case map.third:
+                return "Scissors"
+            default:
+                fatalError("Invalid input")
         }
     }
     
     static func check() -> Bool {
         return Day2Problem1.run(input: Day2_SampleInput) == Day2_SampleOutput
     }
+}
+
+class Day2Problem2: Challenge {
+    static func run(input: String) -> String {
+        let split = input.components(separatedBy: "\n") // separate every new line into an element of the array
+        
+        let scores = split.map { pair in
+            let round = pair.components(separatedBy: " ")
+            
+            let opponent = round[0]
+            let goal = round[1]
+            let player = goalToMove(goal: goal, opponent: opponent)
+            
+            return abcScore(player: player)
+            + resultScore(opponent: opponent, player: player)
+        }
+        
+        let sum = scores.reduce(0, +)
+        
+        return String(sum)
+        
+        func goalToMove(goal: String, opponent: String) -> String {
+            switch goal {
+                case "X": // lose
+                    return loseTo(opponent: opponent)
+                case "Y": // draw
+                    return opponent
+                case "Z": // win
+                    return winAgainst(opponent: opponent)
+                default:
+                    fatalError("Invalid input")
+            }
+        }
+    }
+    
+    static func resultScore(opponent: String, player: String) -> Int {
+        if opponent == "A" && player == "C"
+            || opponent == "B" && player == "A"
+            || opponent == "C" && player == "B" {
+            return 0 // player loses
+        } else if opponent == player {
+            return 3 // player ties
+        } else {
+            return 6 // player wins if they haven't lost or drawn
+        }
+    }
+    
+    static func abcScore(player: String) -> Int {
+        switch player {
+            case "A":
+                return 1
+            case "B":
+                return 2
+            case "C":
+                return 3
+            default:
+                fatalError("Invalid input: " + player)
+        }
+    }
+    
+    static func loseTo(opponent: String) -> String {
+        switch opponent {
+            case "A":
+                return "C"
+            case "B":
+                return "A"
+            case "C":
+                return "B"
+            default:
+                fatalError("Invalid input")
+        }
+    }
+    
+    static func winAgainst(opponent: String) -> String {
+        switch opponent {
+            case "A":
+                return "B"
+            case "B":
+                return "C"
+            case "C":
+                return "A"
+            default:
+                fatalError("Invalid input")
+        }
+    }
+    
+    static func check() -> Bool {
+        return Day2Problem2.run(input: Day2_SampleInput) == Day2_P2_SampleOutput
+    }
+    
+    
 }
 
 
@@ -93,7 +181,16 @@ C Z
 
 // What is the score if you follow the strategy guide? (Example case: 15)
 
+
+// X means you need to lose, Y means you need to end the round in a draw, and Z means you need to win
+// 1st round A = rock + Y = draw -> play rock -> score: draw = 3 + rock = 1 -> 4
+// 2nd round B = paper + X = lose -> play rock -> score: lose = 0 + rock = 1 -> 1
+// 3rd round C = scissors + Z = win -> play rock -> score: win = 6 + rock = 1 -> 7
+// total = 4 + 1 + 7 = 12
+// note: this is a really bad unit test
+
 let Day2_SampleOutput: String = "15"
+let Day2_P2_SampleOutput: String = "12"
 let Day2_RealInput: String = """
 C Z
 C X

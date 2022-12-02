@@ -7,7 +7,5 @@
 
 import Foundation
 
-//print("Day 1: ", Day1Problem1.check() == true ? "Correct!" : "Incorrect")
-//print(Day1Problem1.run(input: Day1_RealInput))
-print(Day1Problem2.run(input: Day1_RealInput))
+print(Day2Problem1.run(input: Day2_RealInput))
 

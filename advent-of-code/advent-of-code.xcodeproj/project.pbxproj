@@ -11,6 +11,7 @@
 		BD1B1ED829390E3D00E06952 /* ChallengeProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1B1ED729390E3D00E06952 /* ChallengeProtocol.swift */; };
 		BD1B1EDA29390E6300E06952 /* Day1.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1B1ED929390E6300E06952 /* Day1.swift */; };
 		BD1B1EDC2939748000E06952 /* Day2.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1B1EDB2939748000E06952 /* Day2.swift */; };
+		BD6E24D0293B870000072573 /* Day3.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD6E24CF293B870000072573 /* Day3.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -31,6 +32,7 @@
 		BD1B1ED729390E3D00E06952 /* ChallengeProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeProtocol.swift; sourceTree = "<group>"; };
 		BD1B1ED929390E6300E06952 /* Day1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day1.swift; sourceTree = "<group>"; };
 		BD1B1EDB2939748000E06952 /* Day2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day2.swift; sourceTree = "<group>"; };
+		BD6E24CF293B870000072573 /* Day3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day3.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +68,7 @@
 				BD1B1ED029390DA300E06952 /* main.swift */,
 				BD1B1ED929390E6300E06952 /* Day1.swift */,
 				BD1B1EDB2939748000E06952 /* Day2.swift */,
+				BD6E24CF293B870000072573 /* Day3.swift */,
 				BD1B1ED729390E3D00E06952 /* ChallengeProtocol.swift */,
 			);
 			path = "advent-of-code";
@@ -130,6 +133,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BD1B1ED129390DA300E06952 /* main.swift in Sources */,
+				BD6E24D0293B870000072573 /* Day3.swift in Sources */,
 				BD1B1EDC2939748000E06952 /* Day2.swift in Sources */,
 				BD1B1EDA29390E6300E06952 /* Day1.swift in Sources */,
 				BD1B1ED829390E3D00E06952 /* ChallengeProtocol.swift in Sources */,

@@ -7,45 +7,8 @@
 
 import Foundation
 
-class Day4Problem1: Challenge {
-    static func run(input: String) -> String {
-        let split: [String] = input.components(separatedBy: "\n") // separate every new line into an element of the array
-        
-        var count = 0
-        split.forEach { range in
-            let sides = range.split(separator: ",")
-            let lhs = sides[0].split(separator: "-")
-            let rhs = sides[1].split(separator: "-")
-            
-            guard
-                let lhsStart = Int(lhs[0]),
-                let lhsEnd = Int(lhs[1]),
-                let rhsStart = Int(rhs[0]),
-                let rhsEnd = Int(rhs[1]
-            ) else {
-                fatalError("Invalid input")
-            }
-            
-            let leftRange = lhsStart ... lhsEnd
-            let rightRange = rhsStart ... rhsEnd
-            
-            print(leftRange, rightRange, leftRange.contains(otherRange: rightRange) || rightRange.contains(otherRange: leftRange))
-            
-            if leftRange.contains(otherRange: rightRange) || rightRange.contains(otherRange: leftRange) {
-                count += 1
-            }
-        }
-        
-        return String(count)
-    }
-    
-    static func check() -> Bool {
-        return Day4Problem1.run(input: Day4_P1_SampleInput) == Day4_P1_SampleOutput
-    }
-}
-
-class Day4Problem2: Challenge {
-    static func run(input: String) -> String {
+class Day4Abstract {
+    static func action(input: String, predicate: (_ lhs: Set<Int>, _ rhs: Set<Int>) -> Bool) -> String {
         let split: [String] = input.components(separatedBy: "\n") // separate every new line into an element of the array
         
         var count = 0
@@ -66,12 +29,32 @@ class Day4Problem2: Challenge {
             let leftSet = Set(lhsStart ... lhsEnd)
             let rightSet = Set(rhsStart ... rhsEnd)
             
-            if (!leftSet.intersection(rightSet).isEmpty || !rightSet.intersection(leftSet).isEmpty) {
+            if predicate(leftSet, rightSet) {
                 count += 1
             }
         }
         
         return String(count)
+    }
+}
+
+class Day4Problem1: Challenge {
+    static func run(input: String) -> String {
+        return Day4Abstract.action(input: input) { lhs, rhs in
+            lhs.isSubset(of: rhs) || rhs.isSubset(of: lhs)
+        }
+    }
+    
+    static func check() -> Bool {
+        return Day4Problem1.run(input: Day4_P1_SampleInput) == Day4_P1_SampleOutput
+    }
+}
+
+class Day4Problem2: Challenge {
+    static func run(input: String) -> String {
+        return Day4Abstract.action(input: input) { lhs, rhs in
+            !lhs.intersection(rhs).isEmpty || !rhs.intersection(lhs).isEmpty
+        }
     }
     
     static func check() -> Bool {

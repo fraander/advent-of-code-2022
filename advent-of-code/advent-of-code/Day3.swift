@@ -133,7 +133,6 @@ class Day3Problem2: Challenge {
     }
     
     static func check() -> Bool {
-        print(Day3_P2_SampleOutput)
         return Day3Problem2.run(input: Day3_P2_SampleInput) == Day3_P2_SampleOutput
     }
 }

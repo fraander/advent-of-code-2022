@@ -13,12 +13,12 @@ class Day4Abstract {
         
         var count = 0
         split.forEach { range in
-            let sides = range.split(separator: ",")
-            let lhs = sides[0].split(separator: "-")
+            let sides = range.split(separator: ",") // split to halves
+            let lhs = sides[0].split(separator: "-") // splits halves to start/end
             let rhs = sides[1].split(separator: "-")
             
             guard
-                let lhsStart = Int(lhs[0]),
+                let lhsStart = Int(lhs[0]), // get start end of each half
                 let lhsEnd = Int(lhs[1]),
                 let rhsStart = Int(rhs[0]),
                 let rhsEnd = Int(rhs[1]
@@ -26,10 +26,10 @@ class Day4Abstract {
                 fatalError("Invalid input")
             }
             
-            let leftSet = Set(lhsStart ... lhsEnd)
+            let leftSet = Set(lhsStart ... lhsEnd) // make ranges for each half
             let rightSet = Set(rhsStart ... rhsEnd)
             
-            if predicate(leftSet, rightSet) {
+            if predicate(leftSet, rightSet) { // check and increment score
                 count += 1
             }
         }
@@ -41,7 +41,7 @@ class Day4Abstract {
 class Day4Problem1: Challenge {
     static func run(input: String) -> String {
         return Day4Abstract.action(input: input) { lhs, rhs in
-            lhs.isSubset(of: rhs) || rhs.isSubset(of: lhs)
+            lhs.isSubset(of: rhs) || rhs.isSubset(of: lhs) // one side completely contains other?
         }
     }
     
@@ -53,7 +53,7 @@ class Day4Problem1: Challenge {
 class Day4Problem2: Challenge {
     static func run(input: String) -> String {
         return Day4Abstract.action(input: input) { lhs, rhs in
-            !lhs.intersection(rhs).isEmpty || !rhs.intersection(lhs).isEmpty
+            !lhs.intersection(rhs).isEmpty || !rhs.intersection(lhs).isEmpty // one side at least partly contains other?
         }
     }
     

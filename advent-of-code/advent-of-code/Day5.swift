@@ -189,7 +189,7 @@ class Day5Problem2: Challenge {
         }
         
         func receive(inputs: [String]) {
-            for input in inputs {
+            for input in inputs.reversed() {
                 strings.insert(input, at: 0)
             }
         }
@@ -334,7 +334,7 @@ move 1 from 1 to 2
  */
 
 let Day5_P1_SampleOutput = "CMZ"
-let Day5_P2_SampleOutput = ""
+let Day5_P2_SampleOutput = "MCD"
 let Day5_RealInput = """
     [C]         [Q]         [V]
     [D]         [D] [S]     [M] [Z]

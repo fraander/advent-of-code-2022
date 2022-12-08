@@ -7,9 +7,9 @@
 
 import Foundation
 
-//print(Day7Problem1.check())
-//print(Day7Problem1.run(input: Day7_RealInput))
+//print(Day8Problem1.check())
+//print(Day8Problem1.run(input: Day8_RealInput))
 
-//print(Day7Problem2.check())
-//print(Day7Problem2.run(input: Day7_RealInput))
+//print(Day8Problem2.check())
+//print(Day8Problem2.run(input: Day8_RealInput))
 

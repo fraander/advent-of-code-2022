@@ -19,6 +19,7 @@
 		BDB04CA8293D84DF0003340C /* Day4.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB04CA7293D84DF0003340C /* Day4.swift */; };
 		BDBFF0092940EBBE007D7AF2 /* Day7.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDBFF0082940EBBE007D7AF2 /* Day7.swift */; };
 		BDBFF00B29412766007D7AF2 /* utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDBFF00A29412766007D7AF2 /* utils.swift */; };
+		BDC362072943AB6500666A28 /* Day9.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDC362062943AB6500666A28 /* Day9.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -46,6 +47,7 @@
 		BDB04CA7293D84DF0003340C /* Day4.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day4.swift; sourceTree = "<group>"; };
 		BDBFF0082940EBBE007D7AF2 /* Day7.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day7.swift; sourceTree = "<group>"; };
 		BDBFF00A29412766007D7AF2 /* utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = utils.swift; sourceTree = "<group>"; };
+		BDC362062943AB6500666A28 /* Day9.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day9.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +91,7 @@
 				BDA6A04F293F996700EB3826 /* Day6.swift */,
 				BDBFF0082940EBBE007D7AF2 /* Day7.swift */,
 				BD902D6229426F12000F746C /* Day8.swift */,
+				BDC362062943AB6500666A28 /* Day9.swift */,
 				BD1B1ED729390E3D00E06952 /* Challenge.swift */,
 			);
 			path = "advent-of-code";
@@ -162,6 +165,7 @@
 				BDA6A050293F996700EB3826 /* Day6.swift in Sources */,
 				BD351C9C293E52C200CD8D08 /* Day5.swift in Sources */,
 				BDB04CA8293D84DF0003340C /* Day4.swift in Sources */,
+				BDC362072943AB6500666A28 /* Day9.swift in Sources */,
 				BD6E24D0293B870000072573 /* Day3.swift in Sources */,
 				BD902D6329426F12000F746C /* Day8.swift in Sources */,
 				BDBFF00B29412766007D7AF2 /* utils.swift in Sources */,
